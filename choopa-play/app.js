@@ -25,11 +25,19 @@ function link(label, url) {
 
 function layout(content, title) {
   document.title = title;
-  return `<div class="topline"><span>O.R.B.I.T. / LINKS</span><span class="mark">AC</span></div>${content}<footer><span>Александр Чупин · 2026</span><a class="back" href="/alexander">Личная страница</a></footer>`;
+  return `<div class="topline"><span>O.R.B.I.T. / LINKS</span><span class="mark">AC</span></div>${content}<footer><span>Александр Чупин · 2026</span><a class="back" href="${route('/alexander')}">Личная страница</a></footer>`;
+}
+
+// GitHub Pages размещает проект в подпути /social-links-hub.
+// На собственном домене basePath остаётся пустым.
+const basePath = window.location.pathname.startsWith('/social-links-hub/') ? '/social-links-hub' : '';
+function route(path) {
+  return `${basePath}${path}`;
 }
 
 function render() {
-  const path = window.location.pathname.replace(/\/$/, '') || '/alexander';
+  let path = window.location.pathname.replace(/\/$/, '') || '/';
+  if (basePath && path.startsWith(basePath)) path = path.slice(basePath.length) || '/';
   const app = document.querySelector('#app');
   if (path === '/choopa-play') {
     app.innerHTML = layout(`<section class="hero"><div class="eyebrow">PROJECT 01</div><h1>Choopa <span class="accent">Play</span></h1><p class="lead">Игры, стримы, цифровые эксперименты и проекты, которые превращают идеи в действие.</p><div class="links">${choopaPlaySocials.map(s => link(s.label, s.url)).join('')}</div></section>`, 'Choopa Play — ссылки');
@@ -39,7 +47,7 @@ function render() {
     app.innerHTML = layout(`<section class="hero"><div class="eyebrow">PROJECT 02</div><h1>Искусство <span class="accent">Движения</span></h1><p class="lead">Развитие личности через познание собственного тела и укрепление характера.</p><div class="links">${socials.map(s => link(s.label, s.url)).join('')}</div><p class="note">Сила · гибкость · выносливость · координация<br/>Дисциплина · тренировки · питание · восстановление</p></section>`, 'Искусство Движения — ссылки');
     return;
   }
-  app.innerHTML = layout(`<section class="hero"><div class="eyebrow">PERSONAL HUB</div><h1>Александр <span class="accent">Чупин</span></h1><p class="lead">Личная страница и проекты, которые я развиваю.</p><div class="links">${personalSocials.map(s => link(s.label, s.url)).join('')}</div><div class="grid"><a class="card" href="/choopa-play"><div class="eyebrow">PROJECT 01</div><h2>Choopa Play</h2><p>Игры, цифровые продукты и эксперименты.</p></a><a class="card" href="/art-of-movement"><div class="eyebrow">PROJECT 02</div><h2>Искусство Движения</h2><p>Гибридный атлетизм и всестороннее развитие через тело.</p></a></div></section>`, 'Александр Чупин — проекты');
+  app.innerHTML = layout(`<section class="hero"><div class="eyebrow">PERSONAL HUB</div><h1>Александр <span class="accent">Чупин</span></h1><p class="lead">Личная страница и проекты, которые я развиваю.</p><div class="links">${personalSocials.map(s => link(s.label, s.url)).join('')}</div><div class="grid"><a class="card" href="${route('/choopa-play')}"><div class="eyebrow">PROJECT 01</div><h2>Choopa Play</h2><p>Игры, цифровые продукты и эксперименты.</p></a><a class="card" href="${route('/art-of-movement')}"><div class="eyebrow">PROJECT 02</div><h2>Искусство Движения</h2><p>Гибридный атлетизм и всестороннее развитие через тело.</p></a></div></section>`, 'Александр Чупин — проекты');
 }
 
 render();
