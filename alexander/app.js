@@ -25,7 +25,7 @@ function link(label, url) {
 
 function layout(content, title) {
   document.title = title;
-  return `<div class="topline"><span>O.R.B.I.T. / LINKS</span><span class="mark">AC</span></div>${content}<footer><span>Александр Чупин · 2026</span><a class="back" href="${route('/alexander')}">Личная страница</a></footer>`;
+  return `<div class="topline"><span>O.R.B.I.T. / LINKS</span><span class="mark">AC</span></div>${content}<footer><span>Александр Чупин · 2026</span><a class="back" href="${route('/choopa-life')}">Личная страница</a></footer>`;
 }
 
 // GitHub Pages размещает проект в подпути /social-links-hub.

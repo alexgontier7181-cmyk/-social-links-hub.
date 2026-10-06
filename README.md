@@ -2,7 +2,7 @@
 
 Три маршрута в одном статичном сайте:
 
-- `/alexander` — личная страница Александра Чупина;
+- `/choopa-life` — личная страница Александра Чупина;
 - `/choopa-play` — Choopa Play;
 - `/art-of-movement` — «Искусство Движения».
 
@@ -14,4 +14,4 @@ Instagram намеренно не добавлен в публичные кно�
 python -m http.server 4173
 ```
 
-Затем открыть `http://localhost:4173/alexander`.
+Затем открыть `http://localhost:4173/choopa-life`.
