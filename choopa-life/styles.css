@@ -16,7 +16,8 @@ body { overflow-x: hidden; }
 .grain { position: fixed; inset: 0; pointer-events: none; opacity: .08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E"); }
 .shell { width: min(680px, calc(100% - 32px)); margin: 0 auto; padding: 52px 0 44px; position: relative; }
 .topline { display:flex; align-items:center; justify-content:space-between; color: var(--muted); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; }
-.mark { width: 50px; height: 50px; display:grid; place-items:center; border: 1px solid var(--red); color: var(--red); font-weight: 900; letter-spacing: -.08em; transform: rotate(-8deg); box-shadow: 0 0 28px rgba(255,38,56,.14); }
+.profile { width: 58px; height: 58px; border-radius: 50%; padding: 2px; border: 1px solid var(--red); box-shadow: 0 0 28px rgba(255,38,56,.18); overflow: hidden; flex: 0 0 auto; }
+.profile img { width: 100%; height: 100%; display: block; border-radius: 50%; object-fit: cover; object-position: 62% 34%; }
 .hero { padding: 64px 0 34px; }
 h1 { font-size: clamp(2.4rem, 8vw, 5.1rem); line-height: .92; letter-spacing: -.075em; margin: 0 0 20px; max-width: 640px; }
 .accent { color: var(--red); }
@@ -34,3 +35,4 @@ h1 { font-size: clamp(2.4rem, 8vw, 5.1rem); line-height: .92; letter-spacing: -.
 footer { margin-top: 40px; color: #746a6b; font-size: .76rem; letter-spacing: .04em; display:flex; justify-content:space-between; gap: 12px; }
 .back { color: var(--muted); text-decoration:none; border-bottom: 1px solid var(--red-deep); }
 @media (max-width: 520px) { .shell { padding-top: 28px; } .hero { padding-top: 48px; } .card, .link { padding: 18px; } footer { flex-direction: column; } }
+
